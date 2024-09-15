@@ -30,3 +30,4 @@ Create the following application
 
 # EX + HW 15/9 
 1. Create the same handlers & entry points for employees, get/create/update/delete
+2. add filter/search - to employees & make the customer search work!

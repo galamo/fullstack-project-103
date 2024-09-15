@@ -3,12 +3,23 @@ import { getCustomers } from "./handlers/getCustomers"
 import { createCustomer, CustomerType } from "./handlers/createCustomer"
 import { deleteCustomer } from "./handlers/deleteCustomer"
 import { updateCustomer } from "./handlers/updateCustomer"
+import { searchCustomers } from "./handlers/searchCustomers"
 
 const router = express.Router()
 
 router.get("/", async (req, res, next) => {
     try {
         const data = await getCustomers()
+        res.json({ customers: data })
+    } catch (error) {
+        res.send("Something went wrong")
+    }
+})
+router.get("/search", async (req, res, next) => {
+    try {
+        const queryParams = req.query
+        const { job_title, city, country_region } = queryParams
+        const data = await searchCustomers({ job_title, city, country_region } as any)
         res.json({ customers: data })
     } catch (error) {
         res.send("Something went wrong")
