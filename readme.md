@@ -25,3 +25,8 @@ Create the following application
 
 ### Database 
 - mysql northwind
+
+
+
+# EX + HW 15/9 
+1. Create the same handlers & entry points for employees, get/create/update/delete
