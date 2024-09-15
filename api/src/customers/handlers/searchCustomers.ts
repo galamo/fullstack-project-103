@@ -14,12 +14,12 @@ export async function searchCustomers(query: SearchCustomerQuery) {
     const cityWhereQuery = query.city ? `city = ?` : "";
     const q = [jobTitleWhereQuery, countryRegionWhereQuery, cityWhereQuery].filter(q => q)
     const queryWithAnd = q.join(" AND ")
-    const values = Object.values(query)
+    const values = Object.values(query).filter(v => v)
     console.log(`SELECT * FROM customers where 
         ${queryWithAnd}`)
     // NOT WORKING YET
     const customers = await connection?.execute(`SELECT * FROM customers where 
-        ${queryWithAnd}`, values)
+        ${queryWithAnd};`, values)
     const result = customers?.[0]
     return result
 }

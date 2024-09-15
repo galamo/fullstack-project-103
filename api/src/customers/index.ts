@@ -22,6 +22,7 @@ router.get("/search", async (req, res, next) => {
         const data = await searchCustomers({ job_title, city, country_region } as any)
         res.json({ customers: data })
     } catch (error) {
+        console.log(error)
         res.send("Something went wrong")
     }
 })
