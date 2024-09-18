@@ -4,6 +4,8 @@ import { CustomerType } from "./createCustomer";
 
 
 export async function updateCustomer(customerId: number, customer: CustomerType) {
+    console.log(customerId)
+    if (isNaN(customerId)) throw new Error("Input validation error")
     const query = `UPDATE customers
     SET company = ?, job_title = ?, first_name = ?, last_name = ?, email_address = ? 
     WHERE (id = ?)`

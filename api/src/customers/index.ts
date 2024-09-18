@@ -51,7 +51,7 @@ router.put("/:idToUpdate", async (req, res, next) => {
         const affectedRows = await updateCustomer(+req.params.idToUpdate, customerToUpdate)
         res.json({ affectedRows })
     } catch (error) {
-        console.log(error)
+        console.log((error as any).message)
         res.send("Something went wrong")
     }
 })
