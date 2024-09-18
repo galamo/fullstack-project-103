@@ -1,0 +1,6 @@
+.centerContent {
+    justify-content: center;
+    display: flex;
+    padding-bottom: 2%;
+    /* text-align: center; */
+}
