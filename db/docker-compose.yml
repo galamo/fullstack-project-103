@@ -1,5 +1,10 @@
 
 services:
+  api:
+    image: api
+    ports:
+      - "3000:3000"
+      
   db:
     image: mysql:8.0
     restart: always
