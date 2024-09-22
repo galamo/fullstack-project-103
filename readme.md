@@ -34,3 +34,7 @@ Create the following application
 
 # Homework
 1. Build the client Employees Page with 50% of the columns from the DB
+
+
+# EX Docker
+1. Dockerize your api
