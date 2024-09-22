@@ -37,4 +37,4 @@ Create the following application
 
 
 # EX Docker
-1. Dockerize your api
+1. watch - https://www.youtube.com/watch?v=pTFZFxd4hOI
