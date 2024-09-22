@@ -10,5 +10,8 @@ COPY tsconfig.json .
 
 RUN npm install
 RUN npm run compile
+
+RUN rm -rf src 
+
 EXPOSE 3500
 CMD ["node" , "./dist/index.js"]
