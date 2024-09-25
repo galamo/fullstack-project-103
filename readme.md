@@ -38,3 +38,13 @@ Create the following application
 
 # EX Docker
 1. watch - https://www.youtube.com/watch?v=pTFZFxd4hOI
+
+
+# EX Docker - multiple containers - same image
+1. When application starts add console.log
+- `console.log("Application start")`
+2. When application listen to port add console.log
+- `console.log("Listening to Port" + process.env.PORT)`
+
+3. navigate to the api folder - `docker build . --tag api-db`
+4. navigate to db folder - `docker compose up`
