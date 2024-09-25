@@ -9,7 +9,7 @@ app.use(cors())
 app.use(bodyParser.json())
 
 app.get("/health-check", (req, res, next) => {
-    return res.json({ message: "Ok" })
+    return res.json({ message: "Server is up - Docker/Not" })
 })
 
 app.use("/customers", customersRouter)

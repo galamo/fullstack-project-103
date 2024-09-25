@@ -3,7 +3,7 @@ FROM node:20-slim
 WORKDIR /usr/app/
 
 COPY src . 
-COPY .env . 
+COPY .env.docker .env 
 COPY package.json .
 COPY package-lock.json .
 COPY tsconfig.json .
