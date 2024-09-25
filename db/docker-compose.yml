@@ -1,15 +1,19 @@
 
 services:
+  client:
+    image: client
+    ports:
+      - "4200:4200"
   api:
-    image: api-db
+    image: northwind-api
     ports:
       - "3500:3500"
   api2:
-    image: api-db
+    image: northwind-api
     ports:
       - "3501:3500"
   api3:
-    image: api-db
+    image: northwind-api
     ports:
       - "3502:3500"                 
   db:

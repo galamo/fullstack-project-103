@@ -5,6 +5,7 @@ import bodyParser from "body-parser"
 import cors from "cors"
 dotenv.config()
 const app = express()
+console.log("Application Start")
 app.use(cors())
 app.use(bodyParser.json())
 
@@ -15,5 +16,6 @@ app.get("/health-check", (req, res, next) => {
 app.use("/customers", customersRouter)
 
 
-
-app.listen(process.env.PORT)
+app.listen(process.env.PORT, () => {
+    console.log(`Application Listen to Port: ${process.env.PORT}`)
+})

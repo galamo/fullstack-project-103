@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react"
 import css from "./style.module.css"
 import Table from 'react-bootstrap/Table';
 import TableTHead from "../customersPage/tableHead";
