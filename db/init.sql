@@ -39,6 +39,16 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 
+CREATE TABLE IF NOT EXISTS `northwind`.`users` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `userName` VARCHAR(50) NULL DEFAULT NULL,
+  `password` VARCHAR(50) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+
 -- -----------------------------------------------------
 -- Table `northwind`.`employees`
 -- -----------------------------------------------------
@@ -70,6 +80,20 @@ CREATE TABLE IF NOT EXISTS `northwind`.`employees` (
   INDEX `state_province` (`state_province` ASC))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
+
+
+CREATE TABLE IF NOT EXISTS `northwind`.`vacations` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `destination` VARCHAR(50) NULL DEFAULT NULL,
+  `description` VARCHAR(50) NULL DEFAULT NULL,
+  `start_date` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+  `end_date` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+  `price` INT(11) NOT NULL DEFAULT 0,
+  `image` VARCHAR(50) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
 
 
 -- -----------------------------------------------------
@@ -1118,6 +1142,7 @@ INSERT INTO `shippers` (`id`, `company`, `last_name`, `first_name`, `email_addre
 #
 # Dumping data for table 'strings'
 #
+INSERT INTO `users` (`userName`, `password`) VALUES ('admin@admin.com', '1234');
 
 INSERT INTO `strings` (`string_id`, `string_data`) VALUES (2, 'Northwind Traders');
 INSERT INTO `strings` (`string_id`, `string_data`) VALUES (3, 'Cannot remove posted inventory!');
@@ -1196,7 +1221,7 @@ INSERT INTO `suppliers` (`id`, `company`, `last_name`, `first_name`, `email_addr
 INSERT INTO `suppliers` (`id`, `company`, `last_name`, `first_name`, `email_address`, `job_title`, `business_phone`, `home_phone`, `mobile_phone`, `fax_number`, `address`, `city`, `state_province`, `zip_postal_code`, `country_region`, `web_page`, `notes`, `attachments`) VALUES (7, 'Supplier G', 'Glasson', 'Stuart', NULL, 'Marketing Manager', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '');
 INSERT INTO `suppliers` (`id`, `company`, `last_name`, `first_name`, `email_address`, `job_title`, `business_phone`, `home_phone`, `mobile_phone`, `fax_number`, `address`, `city`, `state_province`, `zip_postal_code`, `country_region`, `web_page`, `notes`, `attachments`) VALUES (8, 'Supplier H', 'Dunton', 'Bryn Paul', NULL, 'Sales Representative', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '');
 INSERT INTO `suppliers` (`id`, `company`, `last_name`, `first_name`, `email_address`, `job_title`, `business_phone`, `home_phone`, `mobile_phone`, `fax_number`, `address`, `city`, `state_province`, `zip_postal_code`, `country_region`, `web_page`, `notes`, `attachments`) VALUES (9, 'Supplier I', 'Sandberg', 'Mikael', NULL, 'Sales Manager', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '');
-INSERT INTO `suppliers` (`id`, `company`, `last_name`, `first_name`, `email_address`, `job_title`, `business_phone`, `home_phone`, `mobile_phone`, `fax_number`, `address`, `city`, `state_province`, `zip_postal_code`, `country_region`, `web_page`, `notes`, `attachments`) VALUES (10, 'Supplier J', 'Sousa', 'Luis', NULL, 'Sales Manager', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '');
+INSERT INTO `suppliers` (`id`, `company`, `last_name`, `first_name`, `email_address`, `job_title`, `business_phone`, `home_phone`, `mobile_phone`, `fax_number`, `address`, `city`, `state_province`, `zip_postal_code`, `country_region`, `web_page`, `notes`, `attachments`) VALUES (10, 'Supplier J', 'Harel', 'Eini', NULL, 'Sales Manager', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '');
 # 10 records
 
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
