@@ -52,3 +52,5 @@ Create the following application
 
 
 # MongoDB
+
+1. write a query that return all the cars under the name: "ford torino (sw)"
