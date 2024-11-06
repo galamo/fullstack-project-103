@@ -53,3 +53,6 @@ Create the following application
 
 # MongoDB
 1. write a query that return all the cars under the name: "ford torino (sw)"
+
+# Homework
+1. Create mongoose schema based on your vacation project - Entity: Vacation ( create schema & model )
