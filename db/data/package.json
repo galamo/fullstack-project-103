@@ -1,0 +1,14 @@
+{
+    "name": "data",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "seed": "node index.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "mongoose": "^7.5.3"
+    }
+}
