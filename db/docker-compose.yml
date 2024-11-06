@@ -15,8 +15,14 @@ services:
   # api3:
   #   image: northwind-api
   #   ports:
-  #     - "3502:3500"                 
-  db:
+  #     - "3502:3500"    
+  mongodb_container:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    volumes:
+      - my-db:/data/db             
+  mysql_container:
     image: mysql:8.0
     restart: always
     environment:
