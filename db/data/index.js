@@ -10,10 +10,6 @@ async function seed() {
 
 
 
-
-
-
-
     mainConnection().then(async () => {
         console.log("DB Connected")
         const TestSchemModel = new mongoose.Schema({
@@ -28,6 +24,8 @@ async function seed() {
             "Origin": String
         })
         const TestModel = mongoose.model("vehicles", TestSchemModel)
+        const result = await TestModel.find()
+        console.log(result)
         await TestModel.insertMany(data)
         setTimeout(() => {
             process.exit()
