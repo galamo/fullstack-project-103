@@ -22,8 +22,17 @@ const searchCustomers_1 = require("./handlers/searchCustomers");
 const router = express_1.default.Router();
 exports.router = router;
 router.get("/", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a;
     try {
-        const data = yield (0, getCustomers_1.getCustomers)();
+        const queryType = ((_a = req === null || req === void 0 ? void 0 : req.query) === null || _a === void 0 ? void 0 : _a.type) || "full";
+        if (!["short", "full"].includes(queryType)) {
+            return res.status(400).send("invalid type");
+        }
+        let data = yield (0, getCustomers_1.getCustomers)();
+        if (queryType === "short") {
+            //@ts-ignore
+            data = data.map(c => { return { id: c.id }; });
+        }
         res.json({ customers: data });
     }
     catch (error) {

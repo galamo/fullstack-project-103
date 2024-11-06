@@ -9,7 +9,15 @@ const router = express.Router()
 
 router.get("/", async (req, res, next) => {
     try {
-        const data = await getCustomers()
+        const queryType = req?.query?.type || "full"
+        if (!["short", "full"].includes(queryType as string)) {
+            return res.status(400).send("invalid type")
+        }
+        let data = await getCustomers()
+        if (queryType === "short") {
+            //@ts-ignore
+            data = (data as Array<any>).map(c => { return { id: c.id } })
+        }
         res.json({ customers: data })
     } catch (error) {
         res.send("Something went wrong")
@@ -26,6 +34,7 @@ router.get("/search", async (req, res, next) => {
         res.send("Something went wrong")
     }
 })
+
 router.post("/", async (req, res, next) => {
     try {
         const newCustomer: CustomerType = extractCustomer(req.body)
