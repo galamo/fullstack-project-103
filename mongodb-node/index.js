@@ -26,8 +26,35 @@ async function runQueries() {
         const vacationsResult = await VacationModel.find()
         console.log(vacationsResult)
 
-        const v = new VacationModel({ destination: faker.location.country.name, photo: "https://image.com" })
+        const v = new VacationModel({
+            destination: faker.location.country.name,
+            photo: "https://image.com",
+            startDate: Date.now(),
+            endDate: Date.now() + 999999999,
+        })
         await v.save()
+        const byIdRes = await VacationModel.findOne({ _id: "6730f393a7af7f727c91f816" })
+        // console.log(byIdRes)
+        console.log("=======================================================")
+        if (byIdRes) {
+            byIdRes.destination = "NEW DESTINATION"
+            byIdRes.save()
+        }
+
+        // await byIdRes.save()
+        const findNewDestination = await VacationModel.findOne({ destination: "NEW DESTINATION" })
+        console.log(findNewDestination)
+        await VacationModel.findOneAndUpdate({ _id: "6730f2ad6c9b40893bc4fbc4" }, { destination: "what ever" })
+        // byIdRes.save()
+
+        // Sort
+        console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+
+        const vacationsResultSorted = await VacationModel.find().sort({ createdAt: "desc" })
+        console.log(vacationsResultSorted)
+
 
     } catch (ex) {
         console.log(ex.message)
