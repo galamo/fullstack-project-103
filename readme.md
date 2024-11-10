@@ -57,6 +57,10 @@ Create the following application
 # Homework
 1. Create mongoose schema based on your vacation project - Entity: Vacation ( create schema & model )
 
-# Mongoose Ex
+# Mongoose Ex 1
 1. Create new vacation with Data.
 2. make createdAt mandatory field
+
+
+# Mongoose Ex 2
+1. Insert start date & end date with validation. end date must be higher than start date.
