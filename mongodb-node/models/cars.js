@@ -1,7 +1,5 @@
 const mongoose = require("mongoose")
 
-
-
 const CarSchema = new mongoose.Schema({
     Name: String,
     Miles_per_Gallon: Number,
