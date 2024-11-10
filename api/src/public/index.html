@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="get">Get Customers</button>
+    <div id="contnet"></div>
+</body>
+<script>
+    const button = document.getElementById("get")
+    button.addEventListener("click", async function () {
+        const data = await fetch("/customers")
+        const resolved = await data.json()
+        const d = document.getElementById("contnet")
+        d.innerText = JSON.stringify(resolved.customers)
+    })
+
+</script>
+
+</html>
