@@ -56,3 +56,7 @@ Create the following application
 
 # Homework
 1. Create mongoose schema based on your vacation project - Entity: Vacation ( create schema & model )
+
+# Mongoose Ex
+1. Create new vacation with Data.
+2. make createdAt mandatory field
